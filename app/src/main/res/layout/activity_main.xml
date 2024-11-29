@@ -14,7 +14,6 @@
         android:text="@string/ENERGIA"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/textOdpornosc1"
         app:layout_constraintHorizontal_bias="0.555"
