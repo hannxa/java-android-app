@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KuchniaSupebohatera</string>
+    <string name="spiżarnia">spiżarnia</string>
+    <string name="ENERGIA">ENERGIA</string>
+    <string name="MÓZG">MÓZG</string>
+    <string name="SERCE">SERCE</string>
+    <string name="ODPORNOSC">ODPORNOSC</string>
+    <string name="WYSLIJ">Wyslij superbohatera/n na misję!!!</string>
+    <string name ="ksiązkaKucharska">książka/n kucharska</string>
+</resources>
