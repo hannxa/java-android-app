@@ -1,10 +1,23 @@
 <resources>
     <string name="app_name">KuchniaSupebohatera</string>
-    <string name="spiżarnia">spiżarnia</string>
+    <string name="spiżarnia">SPIŻARNIA</string>
     <string name="ENERGIA">ENERGIA</string>
     <string name="MÓZG">MÓZG</string>
     <string name="SERCE">SERCE</string>
     <string name="ODPORNOSC">ODPORNOSC</string>
-    <string name="WYSLIJ">Wyslij superbohatera/n na misję!!!</string>
-    <string name ="ksiązkaKucharska">książka/n kucharska</string>
+    <string name="WYSLIJ">WYSLIJ SUPERBOHATERA NA MISJĘ!!!</string>
+    <string name="kucharz">kucharz</string>
+    <string name="superbohater">superbohater</string>
+    <string name="home">BAZA</string>
+
+    <string name="koktajlmocy">koktajl mocy</string>
+    <string name="salatkazawokado">sałatka z awokado i pomidorami</string>
+    <string name="owsianka">owsianka z jagodami i orzechami</string>
+    <string name="zlotemleko">złote mleko z kurkumą</string>
+    <string name="smoothiebananowe">smoothie bananowo-szpinakowe</string>
+
+    <string name="koktajlmocy_skladniki">mleko kurkuma pieprz miod cynamon</string>
+
+
+
 </resources>

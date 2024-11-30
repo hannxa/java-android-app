@@ -12,6 +12,7 @@
         android:layout_width="50dp"
         android:layout_height="16dp"
         android:text="@string/ENERGIA"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
@@ -21,23 +22,25 @@
         app:layout_constraintTop_toBottomOf="@+id/hero1Energy"
         app:layout_constraintVertical_bias="0.606" />
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="89dp"
         android:layout_height="103dp"
+        android:contentDescription="@string/ksiązkaKucharska"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198"
+        app:layout_constraintVertical_bias="0.107"
         app:srcCompat="@drawable/ksiazkakucharska" />
-
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="86dp"
         android:layout_height="99dp"
+        android:contentDescription="@string/spiżarnia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +54,7 @@
         android:id="@+id/imageView3"
         android:layout_width="288dp"
         android:layout_height="324dp"
+        android:contentDescription="@string/kucharz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.227"
@@ -66,6 +70,7 @@
         android:layout_height="133dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="48dp"
+        android:contentDescription="@string/superbohater"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -161,6 +166,8 @@
         app:layout_constraintTop_toBottomOf="@+id/hero1Immunity"
         app:layout_constraintVertical_bias="0.35" />
 
+    <!--sh2 -->
+
     <TextView
         android:id="@+id/textMozg1"
         android:layout_width="wrap_content"
@@ -171,12 +178,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toEndOf="@+id/textSerce1"
         app:layout_constraintTop_toBottomOf="@+id/hero1Brain"
         app:layout_constraintVertical_bias="0.434" />
-
-    <!--sh2 -->
 
     <TextView
         android:id="@+id/textSerce1"
@@ -194,24 +199,11 @@
         app:layout_constraintTop_toBottomOf="@+id/hero1Heart"
         app:layout_constraintVertical_bias="0.071" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor=""
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025" />
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="121dp"
         android:layout_height="133dp"
+        android:contentDescription="@string/superbohater"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.783"
@@ -349,25 +341,13 @@
         app:layout_constraintTop_toTopOf="@+id/hero2Brain"
         app:layout_constraintVertical_bias="0.723" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.0" />
-
     <!--sh3 -->
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="145dp"
         android:layout_height="130dp"
+        android:contentDescription="@string/superbohater"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
         app:layout_constraintHorizontal_bias="0.388"
@@ -505,19 +485,6 @@
         app:layout_constraintTop_toBottomOf="@+id/hero3Brain"
         app:layout_constraintVertical_bias="0.863" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.651"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.009" />
-
     <!--sh4 -->
     <ImageView
         android:id="@+id/imageView7"
@@ -525,6 +492,7 @@
         android:layout_height="126dp"
         android:layout_marginStart="259dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/superbohater"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.607"
@@ -665,21 +633,8 @@
         app:layout_constraintTop_toBottomOf="@+id/hero4Brain"
         app:layout_constraintVertical_bias="0.875" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.379"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/pantry_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -692,11 +647,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/book_button"
+        android:layout_width="137dp"
+        android:layout_height="78dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/ksiązkaKucharska"
+        android:text="KSIĄŻKA KUCHARSKA"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.52"

@@ -7,4 +7,5 @@
     <color name="yellow">#FFEB3B</color>
     <color name="purple">#4A148C</color>
     <color name="light_purple">#E1BEE7</color>
+    <color name="backgroundColor">#D3D3D3</color>
 </resources>
