@@ -2,33 +2,23 @@ package com.example.kuchniasupebohatera;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Superhero {
-    private boolean empty_indicator;
     private Indicator indicator;
-    private ImageView imageId;
+    private ImageView imageView;
 
-    public Superhero(ImageView image, Indicator indicator){
+    private TextView message;
+
+
+    public Superhero(ImageView image, TextView message, Indicator indicator){
         this.indicator = indicator;
-        this.imageId = imageId;
+        this.imageView = image;
+        this.message = message;
     }
 
-
-    private void addSuperhero(String superhero_name){
-
-    }
-
-    private void removeSuperhero(String superhero_name){
-
-    }
-    public ImageView getImageId() {
-        return imageId;
-    }
-
-    public Indicator getIndicator() {
-        return indicator;
-    }
-    public void setIndicator(Indicator indicator){
-        this.indicator = indicator;
+    public void setVisibility(int visibility){
+        imageView.setVisibility(visibility);
+        indicator.setVisibility(visibility);
     }
 }

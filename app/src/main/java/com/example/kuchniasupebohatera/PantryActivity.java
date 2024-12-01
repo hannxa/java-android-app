@@ -35,8 +35,8 @@ public class PantryActivity extends AppCompatActivity {
         ImageButton homeButton = findViewById(R.id.home_button);
 
         bookButton.setOnClickListener(v -> {
-            Intent goRecipies = new Intent(PantryActivity.this, RecipeBookActivity.class);
-            startActivity(goRecipies);
+            Intent goRecipes = new Intent(PantryActivity.this, RecipeBookActivity.class);
+            startActivity(goRecipes);
         });
         bookButton.setOnClickListener(v -> {
             Intent goBook = new Intent(PantryActivity.this, RecipeBookActivity.class);

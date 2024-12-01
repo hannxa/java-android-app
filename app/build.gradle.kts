@@ -7,6 +7,7 @@ android {
     namespace = "com.example.kuchniasupebohatera"
     compileSdk = 35
 
+
     defaultConfig {
         applicationId = "com.example.kuchniasupebohatera"
         minSdk = 24
@@ -30,6 +31,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }

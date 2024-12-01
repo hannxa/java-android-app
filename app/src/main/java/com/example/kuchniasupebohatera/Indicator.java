@@ -9,7 +9,8 @@ public class Indicator {
     private ProgressBar energyBar, heartBar, immunityBar, brainBar;
     private TextView energyText, heartText, immunityText, brainText;
 
-    public Indicator(ProgressBar energy_value, TextView energy_text, ProgressBar heart_value,TextView heart_text, ProgressBar immunity_value, TextView immunity_text,ProgressBar brain_value, TextView brain_text){
+    public Indicator(ProgressBar energy_value, TextView energy_text, ProgressBar heart_value,TextView
+            heart_text, ProgressBar immunity_value, TextView immunity_text,ProgressBar brain_value, TextView brain_text){
         this.energyBar = energy_value;
         this.heartBar = heart_value;
         this.immunityBar = immunity_value;
@@ -18,6 +19,17 @@ public class Indicator {
         this.brainText =brain_text;
         this.heartText = heart_text;
         this.immunityText = immunity_text;
+    }
+
+    public void setVisibility(int visibility){
+        energyBar.setVisibility(visibility);
+        heartBar.setVisibility(visibility);
+        immunityBar.setVisibility(visibility);
+        brainBar.setVisibility(visibility);
+        energyText.setVisibility(visibility);
+        heartText.setVisibility(visibility);
+        immunityText.setVisibility(visibility);
+        brainText.setVisibility(visibility);
     }
 
     public ProgressBar getEnergy() {
