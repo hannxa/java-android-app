@@ -20,12 +20,12 @@
         app:layout_constraintVertical_bias="0.114" />
 
     <ImageButton
-        android:id="@+id/books_button"
+        android:id="@+id/book_button"
         android:layout_width="67dp"
         android:layout_height="50dp"
         android:layout_marginStart="108dp"
         android:scaleType="fitCenter"
-        android:contentDescription="książka kucharska"
+        android:contentDescription="@string/ksiązkaKucharska"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.113"
@@ -40,9 +40,9 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:scaleType="fitCenter"
-        android:contentDescription="baza"
-        app:layout_constraintBottom_toBottomOf="@+id/books_button"
-        app:layout_constraintEnd_toStartOf="@+id/books_button"
+        android:contentDescription="@string/home"
+        app:layout_constraintBottom_toBottomOf="@+id/book_button"
+        app:layout_constraintEnd_toStartOf="@+id/book_button"
         app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

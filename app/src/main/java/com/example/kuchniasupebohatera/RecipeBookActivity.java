@@ -29,14 +29,14 @@ public class RecipeBookActivity extends AppCompatActivity {
             return insets;
         });
 
-        ListView listSmoothie = findViewById(R.id.ingrediends_super_smoothie);
-        List<String> ingridientsSmoothieS = Arrays.asList("1. banan", "2. szpinak", "3. awokado", "4. mleko lub jogurt naturalny", "5. miód", "6. cytryna", "7. kurkuma", "8. nasiona chia");
-        listSmoothie.setAdapter((ListAdapter) ingridientsSmoothieS);
+        settingMenu();
 
+        ListView listSmoothie = findViewById(R.id.ingrediends_super_smoothie);
+        List<String> ingredientSmoothieS = Arrays.asList("1. banan", "2. szpinak", "3. awokado", "4. mleko lub jogurt naturalny", "5. miód", "6. cytryna", "7. kurkuma", "8. nasiona chia");
 
     }
 
-    private void menu(){
+    private void settingMenu(){
         ImageButton homeButton = findViewById(R.id.homeButton);
         ImageButton pantryButton = findViewById(R.id.pantryButton);
 
@@ -45,8 +45,8 @@ public class RecipeBookActivity extends AppCompatActivity {
             startActivity(goPantry);
         });
         homeButton.setOnClickListener(v -> {
-            Intent goBook = new Intent(RecipeBookActivity.this, MainActivity.class);
-            startActivity(goBook);
+            Intent goHome = new Intent(RecipeBookActivity.this, MainActivity.class);
+            startActivity(goHome);
         });
     }
 }

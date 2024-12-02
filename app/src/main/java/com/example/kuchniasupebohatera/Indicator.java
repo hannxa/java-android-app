@@ -3,7 +3,6 @@ package com.example.kuchniasupebohatera;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.HashMap;
 
 public class Indicator {
     private ProgressBar energyBar, heartBar, immunityBar, brainBar;

@@ -3,6 +3,7 @@ package com.example.kuchniasupebohatera;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,15 +20,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     List<Superhero> superheroList = new ArrayList<>();
+    List<Superhero> positiveSuperheroList;
     List<Ingredient> ingredientsList;
-    private TextView message1, message2, message3, message4;
-    private Superhero superhero1, superhero2, superhero3, superhero4;
+    PantryActivity pantryActivity = new PantryActivity();
 
+    private Superhero superhero1, superhero2, superhero3, superhero4;
     private Handler handler = new Handler();
-    private Runnable runnable;
-    private int interval = 3000;
+    private final int interval = 3000;
     private Random randomH, randomI;
 
     @Override
@@ -40,59 +41,56 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        //łaczenie komponentow
+
         settingMenu();
         settingSuperheros();
 
-        superheroList.get(2).setVisibility(View.INVISIBLE);
-        superheroList.get(3).setVisibility(View.INVISIBLE);
-        System.out.println("rozmiar listy " + superheroList.size());
+        superhero1.setVisibility(true);
+        superhero2.setVisibility(true);
+        superhero3.setVisibility(false);
+        superhero4.setVisibility(false);
 
         //uzyskanie listy skladnikow
-        Ingredient ingredientMenager = new Ingredient();
-        ingredientsList = ingredientMenager.getIngredientsList();
-        for(Ingredient ingredient: ingredientsList){
-            System.out.println(ingredientsList);
-        }
+        Ingredient ingredientManager = new Ingredient();
+        ingredientsList = ingredientManager.getIngredientsList();
 
-        //losowanie supebohatera
-        randomH = new Random();
-        Superhero randomHero = superheroList.get(randomH.nextInt(superheroList.size()));
-
-        System.out.println("wylosowany bohater: " + randomHero);
-
-
-        //losowanie skladnikow
-        randomI = new Random();
-        Ingredient randomIngredient = ingredientsList.get(randomI.nextInt(ingredientsList.size()));
-        System.out.println("wylosowany skladnik: " + randomIngredient);
-
-        //wyswietlanie wiadomosci
+        //wyswietlanie wiadomosci i zbieranie produktow
         settingMessage();
     }
     private void settingMessage(){
+        Runnable runnable;
+
         runnable = new Runnable(){
+
             @Override
             public void run() {
                 //losowanie supebohatera i skladnika
                 randomH = new Random();
                 randomI = new Random();
 
-                Ingredient randomIngredient = ingredientsList.get(randomI.nextInt(ingredientsList.size()));
-                Superhero randomHero = superheroList.get(randomH.nextInt(superheroList.size()));
+                positiveSuperheroList = new ArrayList<>();
+                for(Superhero hero : superheroList){ //jezeli sa widoczni to ich dodaj do listy
+                    if(hero.getVisibility()){ //jezeli jest widoczny i jego przycisk jest klikniety
+                        positiveSuperheroList.add(hero);
+                    }
+                }
+                if(!positiveSuperheroList.isEmpty()){
+                    Superhero randomHero = positiveSuperheroList.get(randomH.nextInt(positiveSuperheroList.size())); //losowanie superhero, z tych ktorzy sa widczni
 
-                if(randomHero == superhero1){
-                    message1.setText(randomIngredient.getIngredient_name());
+                    if(randomHero.getMessage().isEmpty()){ //jezeli nie jest pusty message to nie mozna nic tam dac
+                        randomHero.randomizeMessage(ingredientsList,randomI); //generowanie wiadomosci o zdobytym produkcie
+
+                        randomHero.getCollectButton().setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v)
+                            {
+                                randomHero.setMessage(""); //jak sie zbierze to usuwa sie wiadomosc
+                                pantryActivity.scoredIngredient.add(randomHero.getIngredient());//dodanie produktu do spizarni
+                            }
+                        });
+                    }
                 }
-                if(randomHero == superhero2){
-                    message2.setText(randomIngredient.getIngredient_name());
-                }
-                if(randomHero == superhero3){
-                    message3.setText(randomIngredient.getIngredient_name());
-                }
-                if(randomHero == superhero4){
-                    message4.setText(randomIngredient.getIngredient_name());
-                }
+
                 handler.postDelayed(this, interval); //wywolanie tej samej funkcji po okreslonym czasie
             }
         };
@@ -113,6 +111,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void settingSuperheros(){
+        TextView message1, message2, message3, message4;
+        Button collectButton1, collectButton2, collectButton3, collectButton4;
+
+
         ImageView superhero1Image = findViewById(R.id.imageView4);
         ProgressBar superhero1Energy = findViewById(R.id.hero1Energy);
         TextView energyText1 = findViewById(R.id.textEnergia);
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar superhero1Brain = findViewById(R.id.hero1Brain);
         TextView immunityText1 = findViewById(R.id.textOdpornosc1);
         message1 = findViewById(R.id.message1);
+        collectButton1 = findViewById(R.id.collectButton1);
 
         ImageView superhero2Image = findViewById(R.id.imageView5);
         ProgressBar superhero2Energy = findViewById(R.id.hero2Energy);
@@ -134,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar superhero2Brain = findViewById(R.id.hero2Brain);
         TextView brainText2 = findViewById(R.id.textBrain2);
         message2 = findViewById(R.id.message2);
+        collectButton2 = findViewById(R.id.collectButton2);
+
 
         ImageView superhero3Image = findViewById(R.id.imageView6);
         ProgressBar superhero3Energy = findViewById(R.id.hero3Energy);
@@ -145,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar superhero3Brain = findViewById(R.id.hero3Brain);
         TextView brainText3 = findViewById(R.id.textBrain3);
         message3 = findViewById(R.id.message3);
+        collectButton3 = findViewById(R.id.collectButton3);
+
 
         ImageView superhero4Image = findViewById(R.id.imageView7);
         ProgressBar superhero4Energy = findViewById(R.id.hero4Energy);
@@ -156,11 +163,13 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar superhero4Brain = findViewById(R.id.hero4Brain);
         TextView brainText4 = findViewById(R.id.textBrain4);
         message4 = findViewById(R.id.message4);
+        collectButton4 = findViewById(R.id.collectButton4);
 
-        superhero1 = new Superhero( superhero1Image, message1, new Indicator(superhero1Energy, energyText1, superhero1Heart, heartText1,superhero1Immunity,immunityText1, superhero1Brain, brainText1));
-        superhero2 = new Superhero( superhero2Image, message2, new Indicator(superhero2Energy, energyText2, superhero2Heart, heartText2,superhero2Immunity,immunityText2, superhero2Brain, brainText2));
-        superhero3 = new Superhero( superhero3Image, message3, new Indicator(superhero3Energy, energyText3, superhero3Heart, heartText3,superhero3Immunity,immunityText3, superhero3Brain, brainText3));
-        superhero4 = new Superhero( superhero4Image, message4, new Indicator(superhero4Energy, energyText4, superhero4Heart, heartText4,superhero4Immunity,immunityText4, superhero4Brain, brainText4));
+
+        superhero1 = new Superhero( superhero1Image, message1, collectButton1, new Indicator(superhero1Energy, energyText1, superhero1Heart, heartText1,superhero1Immunity,immunityText1, superhero1Brain, brainText1));
+        superhero2 = new Superhero( superhero2Image, message2, collectButton2, new Indicator(superhero2Energy, energyText2, superhero2Heart, heartText2,superhero2Immunity,immunityText2, superhero2Brain, brainText2));
+        superhero3 = new Superhero( superhero3Image, message3, collectButton3, new Indicator(superhero3Energy, energyText3, superhero3Heart, heartText3,superhero3Immunity,immunityText3, superhero3Brain, brainText3));
+        superhero4 = new Superhero( superhero4Image, message4, collectButton4, new Indicator(superhero4Energy, energyText4, superhero4Heart, heartText4,superhero4Immunity,immunityText4, superhero4Brain, brainText4));
 
         superheroList.add(superhero1);
         superheroList.add(superhero2);

@@ -13,7 +13,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PantryActivity extends AppCompatActivity {
+public List<Ingredient> scoredIngredient = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +30,28 @@ public class PantryActivity extends AppCompatActivity {
             return insets;
         });
 
-        menu();
+        settingMenu();
+        settingPantry();
+    }
+
+
+    private void settingPantry(){
+        //mozliwe jest wybranie skladnika do do przepisu, jak dostanie dodany do scoredIngredients
+        //zwieksza sie ich liczba
 
     }
 
-    private void menu(){
-        ImageButton bookButton = findViewById(R.id.books_button);
+    private void settingMenu(){
+        ImageButton bookButton = findViewById(R.id.book_button);
         ImageButton homeButton = findViewById(R.id.home_button);
 
         bookButton.setOnClickListener(v -> {
-            Intent goRecipes = new Intent(PantryActivity.this, RecipeBookActivity.class);
-            startActivity(goRecipes);
-        });
-        bookButton.setOnClickListener(v -> {
             Intent goBook = new Intent(PantryActivity.this, RecipeBookActivity.class);
             startActivity(goBook);
+        });
+        homeButton.setOnClickListener(v -> {
+            Intent goHome = new Intent(PantryActivity.this, MainActivity.class);
+            startActivity(goHome);
         });
     }
 }
