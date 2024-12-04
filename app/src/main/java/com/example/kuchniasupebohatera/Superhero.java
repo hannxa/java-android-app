@@ -5,8 +5,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -57,7 +55,8 @@ public class Superhero {
         ingredient = ingredients.get(random.nextInt(ingredients.size()));
         setMessage(ingredient.getIngredient_name());
     }
-    public Ingredient getIngredient(){
-        return ingredient;
+    public String getIngredient(){
+        return ingredient.getIngredient_name();
+        //return ingredient;
     }
 }

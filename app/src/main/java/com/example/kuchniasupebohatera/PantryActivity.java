@@ -6,6 +6,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PantryActivity extends AppCompatActivity {
-public List<Ingredient> scoredIngredient = new ArrayList<>();
+public static List<String> scoredIngredient = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,16 @@ public List<Ingredient> scoredIngredient = new ArrayList<>();
             return insets;
         });
 
+        TextView textView = findViewById(R.id.scoredIngredientText);
         settingMenu();
-        settingPantry();
+        StringBuilder ingredientsText = new StringBuilder();
+
+        for(String ingredient : scoredIngredient){
+            ingredientsText.append(ingredient).append("\n");
+        }
+        textView.setText(ingredientsText.toString());
     }
 
-
-    private void settingPantry(){
-        //mozliwe jest wybranie skladnika do do przepisu, jak dostanie dodany do scoredIngredients
-        //zwieksza sie ich liczba
-
-    }
 
     private void settingMenu(){
         ImageButton bookButton = findViewById(R.id.book_button);

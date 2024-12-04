@@ -19,8 +19,47 @@
     <string name="zlotemleko">złote mleko z kurkumą</string>
     <string name="smoothiebananowe">smoothie bananowo-szpinakowe</string>
 
-    <string name="koktajlmocy_skladniki">mleko kurkuma pieprz miod cynamon</string>
+    <string name="koktajlmocy_skladniki">"SKŁADNIKI:\n\n1. banan\n 2.szpinak\n 3. awokado\n 4. mleko\n5. miód\n 6. cytryna\n7. kurkuma\n 8. nasiona chia "</string>
+    <string name="skladnikiOwsianki">"SKŁADNIKI:\n\n1. mleko\n2. jagody\n3. orzechy włoskie\n4. miód"</string>
+    <string name="składnikiSmoothieBananowego">"SKŁADNIKI:\n\n1. banan\n2. szpinak \n3.woda kokosowa\n4. masło orzechowe"</string>
+    <string name="składnikiZlotegoMleka">"SKŁADNIKI:\n\n1. mleko\n 2.kukruma\n3. pieprz\n4. miód\n5. cynamon"</string>
+    <string name="składnikiSałatki">SKŁADNIKI:\n\n1. awokado\n2. pomidor\n3. cebula\n4. oliwa z oliwek\n5. sol morska\n6. pieprz\n7. cytryna</string>
+    <string name="sprawdzMnieButton">Sprawdz\nmnie!</string>
 
+    <string name="addButton">wybierz</string>
+    <string name="ilosc">ilosc:</string>
+    <string name="brakIlosci">brak</string>
+
+    <string name="attribute_energy">energia</string>
+    <string name="attribute_brain">mózg</string>
+    <string name="attribute_heart">serce</string>
+    <string name="attribute_immunity">odporność</string>
+
+
+    <string name="ingredient_banana">banan</string>
+    <string name="ingredient_spinach">szpinak</string>
+    <string name="ingredient_avocado">awokado</string>
+    <string name="ingredient_milk">mleko</string>
+    <string name="ingredient_yogurt">naturalny jogurt</string>
+    <string name="ingredient_honey">miód</string>
+    <string name="ingredient_lemon">cytryna</string>
+    <string name="ingredient_turmeric">kurkuma</string>
+    <string name="ingredient_chia_seeds">nasiona chia</string>
+    <string name="ingredient_tomatoes">pomidory</string>
+    <string name="ingredient_onion">cebula</string>
+    <string name="ingredient_olive_oil">oliwa z oliwek</string>
+    <string name="ingredient_sea_salt">sól morska</string>
+    <string name="ingredient_pepper">pieprz</string>
+    <string name="ingredient_blueberries">jagody</string>
+    <string name="ingredient_walnuts">orzechy włoskie</string>
+    <string name="ingredient_cinnamon">cynamon</string>
+    <string name="ingredient_coconut_water">woda kokosowa</string>
+    <string name="ingredient_peanut_butter">masło orzechowe</string>
+    <string name="ingredient_sugar">biały cukier</string>
+    <string name="ingredient_chips">chipsy</string>
+    <string name="ingredient_sweet_drink">słodzony napój</string>
+    <string name="ingredient_instant_soup">zupka błyskawiczna</string>
+    <string name="ingredient_donut">pączek</string>
 
 
 </resources>

@@ -3,8 +3,6 @@ package com.example.kuchniasupebohatera;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -24,8 +22,6 @@ public class MainActivity extends AppCompatActivity{
     List<Superhero> superheroList = new ArrayList<>();
     List<Superhero> positiveSuperheroList;
     List<Ingredient> ingredientsList;
-    PantryActivity pantryActivity = new PantryActivity();
-
     private Superhero superhero1, superhero2, superhero3, superhero4;
     private Handler handler = new Handler();
     private final int interval = 3000;
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity{
 
                 positiveSuperheroList = new ArrayList<>();
                 for(Superhero hero : superheroList){ //jezeli sa widoczni to ich dodaj do listy
-                    if(hero.getVisibility()){ //jezeli jest widoczny i jego przycisk jest klikniety
+                    if(hero.getVisibility()){
                         positiveSuperheroList.add(hero);
                     }
                 }
@@ -80,13 +76,9 @@ public class MainActivity extends AppCompatActivity{
                     if(randomHero.getMessage().isEmpty()){ //jezeli nie jest pusty message to nie mozna nic tam dac
                         randomHero.randomizeMessage(ingredientsList,randomI); //generowanie wiadomosci o zdobytym produkcie
 
-                        randomHero.getCollectButton().setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v)
-                            {
-                                randomHero.setMessage(""); //jak sie zbierze to usuwa sie wiadomosc
-                                pantryActivity.scoredIngredient.add(randomHero.getIngredient());//dodanie produktu do spizarni
-                            }
+                        randomHero.getCollectButton().setOnClickListener(v -> {
+                            randomHero.setMessage(""); //jak sie zbierze to usuwa sie wiadomosc
+                            PantryActivity.scoredIngredient.add(randomHero.getIngredient());//dodanie produktu do spizarni
                         });
                     }
                 }

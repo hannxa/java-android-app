@@ -1,5 +1,8 @@
 package com.example.kuchniasupebohatera;
 
+import android.widget.Button;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +13,8 @@ public class Ingredient {
     private int heartValue;
     private int brainValue;
     private int immunityValue;
+    private Button addButtom;
+    private ImageView image;
     private List<Ingredient> ingredientsList = new ArrayList<>();
 
     public Ingredient(String ingredient_name, int brainValue, int energyValue, int heartValue, int immunityValue){
@@ -22,7 +27,8 @@ public class Ingredient {
     public Ingredient(){
 
     }
-    private void initializeIngredients(){
+    //
+    private void initializeIngredients(){ //zostanie to jeszcze zmienione
         ingredientsList.add(new Ingredient("banan", 3, 9, 8, 3));
         ingredientsList.add(new Ingredient("szpinak", 8, 4, 9, 5));
         ingredientsList.add(new Ingredient("awokado", 8, 7, 10, 5));
@@ -48,7 +54,6 @@ public class Ingredient {
         ingredientsList.add(new Ingredient("zupka błyskawiczna", -8, -3, -10, -6));
         ingredientsList.add(new Ingredient("pączek", -7, -10, -6, -8));
     }
-
     public List<Ingredient> getIngredientsList(){
         initializeIngredients();
         return ingredientsList;
