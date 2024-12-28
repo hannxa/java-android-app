@@ -13,11 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PantryActivity extends AppCompatActivity {
+
+private IngredientAdapter adapter;
 public static List<String> scoredIngredient = new ArrayList<>();
 
     @Override
@@ -31,16 +35,26 @@ public static List<String> scoredIngredient = new ArrayList<>();
             return insets;
         });
 
-        TextView textView = findViewById(R.id.scoredIngredientText);
+        // Znajdź RecyclerView w widoku
+        RecyclerView recyclerView = findViewById(R.id.myRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        List<Ingredient> ingredients = Ingredient.ingredientsList;
+        adapter = new IngredientAdapter(ingredients);
+        recyclerView.setAdapter(adapter);
+
+
+
         settingMenu();
+        /*TextView textView = findViewById(R.id.scoredIngredientText);
+
         StringBuilder ingredientsText = new StringBuilder();
 
         for(String ingredient : scoredIngredient){
             ingredientsText.append(ingredient).append("\n");
         }
-        textView.setText(ingredientsText.toString());
+        textView.setText(ingredientsText.toString());*/
     }
-
 
     private void settingMenu(){
         ImageButton bookButton = findViewById(R.id.book_button);

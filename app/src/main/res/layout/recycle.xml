@@ -11,50 +11,60 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/cardview_shadow_start_color"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="306dp">
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/amountText"
                 android:layout_width="85dp"
                 android:layout_height="46dp"
                 android:text="@string/ilosc"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                app:layout_constraintEnd_toEndOf="@+id/avokadoImage"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+                app:layout_constraintStart_toStartOf="@+id/avokadoImage"
+                app:layout_constraintTop_toBottomOf="@+id/avokadoImage"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView12"
-                android:layout_width="174dp"
-                android:layout_height="32dp"
+                android:id="@+id/avocadoText"
+                android:layout_width="257dp"
+                android:layout_height="58dp"
                 android:text="@string/ingredient_avocado"
-                android:textSize="25dp"
-                app:layout_constraintBottom_toTopOf="@+id/imageView17"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/addButton"
-                android:layout_width="120dp"
-                android:layout_height="66dp"
-                android:text="@string/addButton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.927"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/avokadoImage"
+                app:layout_constraintEnd_toEndOf="@+id/avokadoImage"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toStartOf="@+id/avokadoImage"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="182dp"
+                android:layout_height="82dp"
+                android:text="@string/addButton"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.89"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
             <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="209dp"
-                android:layout_height="213dp"
+                android:id="@+id/avokadoImage"
+                android:layout_width="187dp"
+                android:layout_height="136dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.08"
@@ -63,67 +73,75 @@
                 app:srcCompat="@drawable/awokado" />
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="256dp"
-                android:text="@string/attribute_brain"
+                android:id="@+id/brainText"
+                android:layout_width="201dp"
+                android:layout_height="49dp"
+                android:layout_marginEnd="108dp"
+                android:text="mózg: 8"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/heartText"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.681" />
+                app:layout_constraintVertical_bias="0.456" />
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="233dp"
-                android:layout_marginTop="112dp"
-                android:text="@string/attribute_heart"
+                android:id="@+id/heartText"
+                android:layout_width="183dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="328dp"
+                android:layout_marginBottom="116dp"
+                android:text="serce: 10"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintHorizontal_bias="0.747"
+                app:layout_constraintStart_toEndOf="@+id/avokadoImage"
+                app:layout_constraintTop_toBottomOf="@+id/energyText"
+                app:layout_constraintVertical_bias="0.516" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="216dp"
-                android:text="@string/attribute_immunity"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
+                android:id="@+id/immunityText"
+                android:layout_width="221dp"
+                android:layout_height="41dp"
+                android:layout_marginEnd="84dp"
+                android:text="odpornosc: 5"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/brainText"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toEndOf="@+id/energyText"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.369" />
+                app:layout_constraintVertical_bias="0.421" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="233dp"
-                android:text="@string/attribute_energy"
+                android:id="@+id/energyText"
+                android:layout_width="195dp"
+                android:layout_height="59dp"
+                android:layout_marginEnd="240dp"
+                android:text="energia: 7"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView17"
+                app:layout_constraintHorizontal_bias="0.449"
+                app:layout_constraintStart_toEndOf="@+id/avokadoImage"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.223" />
+                app:layout_constraintVertical_bias="0.132" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/amountValueText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/brakIlosci"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toEndOf="@+id/textView13"
-                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+                app:layout_constraintEnd_toEndOf="@+id/avokadoImage"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/amountText"
+                app:layout_constraintTop_toBottomOf="@+id/avokadoImage"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

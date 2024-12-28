@@ -30,7 +30,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/book_text"
         app:layout_constraintVertical_bias="0.863"
-        app:srcCompat="@drawable/mleko" />
+        app:srcCompat="@drawable/mlekok" />
 
     <ImageView
         android:id="@+id/imageView11"
