@@ -51,12 +51,4 @@ public class Superhero {
     public Button getCollectButton(){
         return collectButton;
     }
-    public void randomizeMessage(List<Ingredient> ingredients, Random random){
-        ingredient = ingredients.get(random.nextInt(ingredients.size()));
-        setMessage(ingredient.getIngredient_name());
-    }
-    public String getIngredient(){
-        return ingredient.getIngredient_name();
-        //return ingredient;
-    }
 }

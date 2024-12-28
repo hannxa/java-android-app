@@ -93,12 +93,14 @@
         app:layout_constraintVertical_bias="0.379"
         app:srcCompat="@drawable/kucharz" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView4"
         android:layout_width="140dp"
         android:layout_height="133dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="48dp"
+        android:scaleType="centerInside"
+        android:background="@null"
         android:contentDescription="@string/superbohater"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
@@ -228,11 +230,13 @@
         app:layout_constraintTop_toBottomOf="@+id/hero1Heart"
         app:layout_constraintVertical_bias="0.071" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView5"
         android:layout_width="121dp"
         android:layout_height="133dp"
         android:contentDescription="@string/superbohater"
+        android:scaleType="centerInside"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.783"
@@ -373,11 +377,13 @@
     <!--sh3 -->
 
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView6"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:contentDescription="@string/superbohater"
+        android:scaleType="centerInside"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
         app:layout_constraintHorizontal_bias="0.366"
@@ -514,12 +520,14 @@
         app:layout_constraintVertical_bias="0.863" />
 
     <!--sh4 -->
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView7"
         android:layout_width="127dp"
         android:layout_height="126dp"
         android:layout_marginStart="259dp"
         android:layout_marginEnd="16dp"
+        android:scaleType="centerInside"
+        android:background="@null"
         android:contentDescription="@string/superbohater"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -763,6 +771,19 @@
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="@+id/message1"
         app:layout_constraintTop_toBottomOf="@+id/message1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/chosenIngredients"
+        android:layout_width="206dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="14dp"
+        android:text="@string/ilosc"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/message1"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
 

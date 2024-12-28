@@ -10,14 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder> {
     private List<Ingredient> ingredients;
+    private List<String> chosenIngredients = new ArrayList<>();
 
+
+
+    private boolean canReverse = false;
     // Konstruktor adaptera
     public IngredientAdapter(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+    public IngredientAdapter(){
+
     }
 
     // ViewHolder dla RecyclerView
@@ -30,7 +39,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
         TextView amount;
         TextView amountValue;
         ImageView ingredientImageView;
-        Button selectButton;
+        Button selectButton, reverseButton;
 
         public IngredientViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -44,9 +53,9 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
             amountValue = itemView.findViewById(R.id.amountValueText);
             ingredientImageView = itemView.findViewById(R.id.avokadoImage);
             selectButton = itemView.findViewById(R.id.addButton);
+            reverseButton = itemView.findViewById(R.id.reverseButton);
         }
     }
-
     @NonNull
     @Override
     public IngredientViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -72,7 +81,22 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
 
         // Obsługa kliknięcia przycisku
         holder.selectButton.setOnClickListener(v -> {
-            // Przykładowa obsługa kliknięcia
+            if(ingredient.getCanClicked()){
+                ingredient.setCanButtonBeClicked(false);
+                setButtonReversibility(true);
+                ingredient.decreaseAmountValue();
+                chosenIngredients.add(ingredient.getIngredient_name());
+                notifyItemChanged(holder.getAdapterPosition()); //zmienia sie od razu liczba
+            }
+        });
+        holder.reverseButton.setOnClickListener(v -> {
+            if(getIsButtonReversible()) {
+                setButtonReversibility(false);
+                ingredient.setCanButtonBeClicked(true); //mozna znowu wybrac skladnik po cofnieciu
+                ingredient.increaseAmountValue();
+                chosenIngredients.remove(ingredient);
+                notifyItemChanged(holder.getAdapterPosition()); //zmienia sie od razu liczba
+            }
         });
     }
 
@@ -80,5 +104,16 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
     public int getItemCount() {
         // Zwrócenie liczby elementów w liście
         return ingredients.size();
+    }
+
+    public boolean getIsButtonReversible() {
+        return canReverse;
+    }
+
+    public void setButtonReversibility(boolean canReverse) {
+        this.canReverse = canReverse;
+    }
+    public List<String> getIngredients() {
+        return chosenIngredients;
     }
 }

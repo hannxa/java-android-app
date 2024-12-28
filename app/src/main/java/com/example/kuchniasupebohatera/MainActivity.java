@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity{
     private Handler handler = new Handler();
     private final int interval = 3000;
     private Random randomH, randomI;
-
+    private IngredientAdapter adapterList = new IngredientAdapter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity{
         superhero4.setVisibility(false);
 
         //uzyskanie listy skladnikow
-        Ingredient ingredientManager = new Ingredient();
+        PantryActivity ingredientManager = new PantryActivity();
         ingredientsList = ingredientManager.getIngredientsList();
 
         //wyswietlanie wiadomosci i zbieranie produktow
@@ -74,15 +74,16 @@ public class MainActivity extends AppCompatActivity{
                     Superhero randomHero = positiveSuperheroList.get(randomH.nextInt(positiveSuperheroList.size())); //losowanie superhero, z tych ktorzy sa widczni
 
                     if(randomHero.getMessage().isEmpty()){ //jezeli nie jest pusty message to nie mozna nic tam dac
-                        randomHero.randomizeMessage(ingredientsList,randomI); //generowanie wiadomosci o zdobytym produkcie
+                        Ingredient randomIngredient = ingredientsList.get(randomI.nextInt(ingredientsList.size())); //losowanie produktu
+                        randomHero.setMessage(randomIngredient.getIngredient_name()); //generowanie wiadomosci o zdobytym produkcie
 
                         randomHero.getCollectButton().setOnClickListener(v -> {
                             randomHero.setMessage(""); //jak sie zbierze to usuwa sie wiadomosc
-                            PantryActivity.scoredIngredient.add(randomHero.getIngredient());//dodanie produktu do spizarni
+                            randomIngredient.increaseAmountValue(); //dodanie do spizarni
+                            randomIngredient.setCanButtonBeClicked(true);
                         });
                     }
                 }
-
                 handler.postDelayed(this, interval); //wywolanie tej samej funkcji po okreslonym czasie
             }
         };
