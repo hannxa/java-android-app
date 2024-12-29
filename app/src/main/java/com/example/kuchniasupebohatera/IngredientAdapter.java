@@ -16,9 +16,7 @@ import java.util.List;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder> {
     private List<Ingredient> ingredients;
-    private List<String> chosenIngredients = new ArrayList<>();
-
-
+    private static List<Ingredient> chosenIngredients = new ArrayList<>();
 
     private boolean canReverse = false;
     // Konstruktor adaptera
@@ -81,11 +79,13 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
 
         // Obsługa kliknięcia przycisku
         holder.selectButton.setOnClickListener(v -> {
-            if(ingredient.getCanClicked()){
+            if(ingredient.getAmountValue() == 0){
                 ingredient.setCanButtonBeClicked(false);
+            }
+            if(ingredient.getCanClicked()){
                 setButtonReversibility(true);
                 ingredient.decreaseAmountValue();
-                chosenIngredients.add(ingredient.getIngredient_name());
+                chosenIngredients.add(ingredient);
                 notifyItemChanged(holder.getAdapterPosition()); //zmienia sie od razu liczba
             }
         });
@@ -113,7 +113,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
     public void setButtonReversibility(boolean canReverse) {
         this.canReverse = canReverse;
     }
-    public List<String> getIngredients() {
+    public static List<Ingredient> getIngredients() {
         return chosenIngredients;
     }
 }

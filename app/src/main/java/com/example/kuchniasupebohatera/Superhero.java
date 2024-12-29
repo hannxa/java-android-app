@@ -2,6 +2,7 @@ package com.example.kuchniasupebohatera;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,28 +11,28 @@ import java.util.Random;
 
 public class Superhero {
     private Indicator indicator;
-    private final ImageView imageView;
+    private final ImageButton image;
     private Button collectButton;
     private TextView message;
     private boolean visibility;
 
     private Ingredient ingredient;
 
-    public Superhero(ImageView image, TextView message, Button collectButton, Indicator indicator){
+    public Superhero(ImageButton image, TextView message, Button collectButton, Indicator indicator){
         this.indicator = indicator;
-        this.imageView = image;
+        this.image = image;
         this.message = message;
         this.collectButton = collectButton;
     }
 
     public void setVisibility(boolean visible){
         if(visible){
-            imageView.setVisibility(View.VISIBLE);
+            image.setVisibility(View.VISIBLE);
             indicator.setVisibility(View.VISIBLE);
             collectButton.setVisibility(View.VISIBLE);
             visibility = true;
         } else {
-            imageView.setVisibility(View.INVISIBLE);
+            image.setVisibility(View.INVISIBLE);
             indicator.setVisibility(View.INVISIBLE);
             collectButton.setVisibility(View.INVISIBLE);
             visibility = false;
@@ -50,5 +51,11 @@ public class Superhero {
 
     public Button getCollectButton(){
         return collectButton;
+    }
+    public ImageButton getImage(){
+        return image;
+    }
+    public Indicator getIndicator(){
+        return indicator;
     }
 }

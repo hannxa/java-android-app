@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,11 +23,15 @@ public class MainActivity extends AppCompatActivity{
     List<Superhero> superheroList = new ArrayList<>();
     List<Superhero> positiveSuperheroList;
     List<Ingredient> ingredientsList;
+    List<Ingredient> chosenIngredients;
+
     private Superhero superhero1, superhero2, superhero3, superhero4;
     private Handler handler = new Handler();
     private final int interval = 3000;
     private Random randomH, randomI;
     private IngredientAdapter adapterList = new IngredientAdapter();
+    private boolean canBeFeed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +57,28 @@ public class MainActivity extends AppCompatActivity{
 
         //wyswietlanie wiadomosci i zbieranie produktow
         settingMessage();
+        if(!IngredientAdapter.getIngredients().isEmpty()){
+            feedingHeroes();
+        }
     }
+    private void feedingHeroes(){
+        for(Superhero hero : superheroList) {
+            ImageButton heroImage = hero.getImage();
+            heroImage.setOnClickListener(v ->{
+                Indicator heroIndicator = hero.getIndicator();
+                chosenIngredients = IngredientAdapter.getIngredients();
+
+                for(Ingredient ingredient : chosenIngredients){
+                    heroIndicator.getEnergy().incrementProgressBy(ingredient.getEnergy());
+                    heroIndicator.getImmunity().incrementProgressBy(ingredient.getImmunity());
+                    heroIndicator.getHeart().incrementProgressBy(ingredient.getHeart());
+                    heroIndicator.getBrain().incrementProgressBy(ingredient.getBrain());
+                }
+                IngredientAdapter.getIngredients().clear();
+            });
+        }
+    }
+
     private void settingMessage(){
         Runnable runnable;
 
@@ -108,7 +134,7 @@ public class MainActivity extends AppCompatActivity{
         Button collectButton1, collectButton2, collectButton3, collectButton4;
 
 
-        ImageView superhero1Image = findViewById(R.id.imageView4);
+        ImageButton superhero1Image = findViewById(R.id.imageView4);
         ProgressBar superhero1Energy = findViewById(R.id.hero1Energy);
         TextView energyText1 = findViewById(R.id.textEnergia);
         ProgressBar superhero1Immunity = findViewById(R.id.hero1Immunity);
@@ -120,7 +146,7 @@ public class MainActivity extends AppCompatActivity{
         message1 = findViewById(R.id.message1);
         collectButton1 = findViewById(R.id.collectButton1);
 
-        ImageView superhero2Image = findViewById(R.id.imageView5);
+        ImageButton superhero2Image = findViewById(R.id.imageView5);
         ProgressBar superhero2Energy = findViewById(R.id.hero2Energy);
         TextView energyText2 = findViewById(R.id.textEnergy2);
         ProgressBar superhero2Immunity = findViewById(R.id.hero2Immunity);
@@ -133,7 +159,7 @@ public class MainActivity extends AppCompatActivity{
         collectButton2 = findViewById(R.id.collectButton2);
 
 
-        ImageView superhero3Image = findViewById(R.id.imageView6);
+        ImageButton superhero3Image = findViewById(R.id.imageView6);
         ProgressBar superhero3Energy = findViewById(R.id.hero3Energy);
         TextView energyText3 = findViewById(R.id.textEnergy3);
         ProgressBar superhero3Immunity = findViewById(R.id.hero3Immunity);
@@ -146,7 +172,7 @@ public class MainActivity extends AppCompatActivity{
         collectButton3 = findViewById(R.id.collectButton3);
 
 
-        ImageView superhero4Image = findViewById(R.id.imageView7);
+        ImageButton superhero4Image = findViewById(R.id.imageView7);
         ProgressBar superhero4Energy = findViewById(R.id.hero4Energy);
         TextView energyText4 = findViewById(R.id.textEnergy4);
         ProgressBar superhero4Immunity = findViewById(R.id.hero4Immunity);
