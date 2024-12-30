@@ -1,6 +1,8 @@
 package com.example.kuchniasupebohatera;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import androidx.activity.EdgeToEdge;
@@ -17,12 +19,12 @@ import java.util.List;
 public class PantryActivity extends AppCompatActivity {
 
 private IngredientAdapter adapter;
-
 public static List<Ingredient> ingredientsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pantry2);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -30,7 +32,6 @@ public static List<Ingredient> ingredientsList = new ArrayList<>();
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         settingMenu();
         // Znajdź RecyclerView w widoku
         RecyclerView recyclerView = findViewById(R.id.myRecyclerView);
@@ -58,6 +59,7 @@ public static List<Ingredient> ingredientsList = new ArrayList<>();
             startActivity(goHome);
         });
     }
+
     private void initializeIngredients(){
         ingredientsList.add(new Ingredient("banan", 3, 9, 8, 3,0, R.drawable.banan));
         ingredientsList.add(new Ingredient("szpinak", 8, 4, 9, 5,0,R.drawable.szpinak));
@@ -79,9 +81,9 @@ public static List<Ingredient> ingredientsList = new ArrayList<>();
         ingredientsList.add(new Ingredient("woda kokosowa", 2, 7, 4, 3,0,R.drawable.kokos));
         ingredientsList.add(new Ingredient("masło orzechowe", 7, 8, 5, 3,0,R.drawable.maslo));
         ingredientsList.add(new Ingredient("biały cukier", -5, 2, -8, -7,0,R.drawable.cukier));
-        ingredientsList.add(new Ingredient("chipsy", -3, -1, -7, -5,0,R.drawable.chipsy));
-        ingredientsList.add(new Ingredient("słodzony napój", -6, 1, -9, -8,0,R.drawable.napoj));
-        ingredientsList.add(new Ingredient("zupka błyskawiczna", -8, -3, -10, -6,0,R.drawable.zupka));
+        ingredientsList.add(new Ingredient("chipsy", -3, -1, -6, -7,0,R.drawable.chipsy));
+        ingredientsList.add(new Ingredient("słodzony napój", -6, 1, -8, -9,0,R.drawable.napoj));
+        ingredientsList.add(new Ingredient("zupka błyskawiczna", -9, -3, -8, -6,0,R.drawable.zupka));
         ingredientsList.add(new Ingredient("pączek", -7, -10, -6, -8,0,R.drawable.paczek));
     }
 }

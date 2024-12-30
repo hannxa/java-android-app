@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder> {
@@ -19,7 +18,6 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
     private static List<Ingredient> chosenIngredients = new ArrayList<>();
 
     private boolean canReverse = false;
-    // Konstruktor adaptera
     public IngredientAdapter(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }

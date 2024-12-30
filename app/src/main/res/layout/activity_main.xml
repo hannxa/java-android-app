@@ -10,103 +10,109 @@
 
     <Button
         android:id="@+id/collectButton3"
-        android:layout_width="88dp"
+        android:layout_width="98dp"
         android:layout_height="48dp"
         android:text="@string/collectButton"
         android:textSize="11sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/message3"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="@+id/message3"
-        app:layout_constraintTop_toBottomOf="@+id/message3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/hero3Energy"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/textEnergia"
+        app:layout_constraintVertical_bias="0.394" />
 
     <Button
         android:id="@+id/collectButton4"
-        android:layout_width="88dp"
+        android:layout_width="98dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="36dp"
         android:text="@string/collectButton"
         android:textSize="11sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/message4"
-        app:layout_constraintStart_toStartOf="@+id/message4"
-        app:layout_constraintTop_toBottomOf="@+id/message4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/hero4Energy"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toEndOf="@+id/collectButton3"
+        app:layout_constraintTop_toBottomOf="@+id/textEnergy2"
+        app:layout_constraintVertical_bias="0.39" />
+
+
+    <!--sh1 -->
+
 
     <TextView
         android:id="@+id/textEnergia"
         android:layout_width="50dp"
         android:layout_height="16dp"
         android:text="@string/ENERGIA"
-        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/textOdpornosc1"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/hero1Energy"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hero1Energy"
         app:layout_constraintTop_toBottomOf="@+id/hero1Energy"
-        app:layout_constraintVertical_bias="0.606" />
-
+        app:layout_constraintVertical_bias="0.696" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="89dp"
         android:layout_height="103dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="-10dp"
         android:contentDescription="@string/ksiązkaKucharska"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142"
+        app:layout_constraintVertical_bias="0.15"
         app:srcCompat="@drawable/ksiazkakucharska" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="86dp"
         android:layout_height="99dp"
+        android:layout_marginBottom="80dp"
         android:contentDescription="@string/spiżarnia"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.665"
+        app:layout_constraintEnd_toEndOf="@+id/book_button"
+        app:layout_constraintStart_toStartOf="@+id/book_button"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/spizarnia" />
 
-    <!--sh1 -->
 
+    <!--sh2 -->
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="288dp"
-        android:layout_height="324dp"
+        android:layout_width="269dp"
+        android:layout_height="303dp"
         android:contentDescription="@string/kucharz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/kucharz" />
 
     <ImageButton
         android:id="@+id/imageView4"
         android:layout_width="140dp"
         android:layout_height="133dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="48dp"
-        android:scaleType="centerInside"
+        android:layout_marginStart="46dp"
         android:background="@null"
         android:contentDescription="@string/superbohater"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/sh1" />
 
     <ProgressBar
@@ -114,7 +120,6 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="50dp"
         android:layout_height="14dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="-10dp"
         android:max="100"
         android:progress="50"
@@ -122,18 +127,17 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintStart_toEndOf="@+id/book_button"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.328" />
-
+        app:layout_constraintVertical_bias="0.347" />
 
     <ProgressBar
         android:id="@+id/hero1Heart"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="50dp"
         android:layout_height="14dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="-10dp"
         android:max="100"
         android:progress="50"
@@ -141,17 +145,17 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <ProgressBar
         android:id="@+id/hero1Immunity"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="50dp"
         android:layout_height="14dp"
-        android:layout_marginStart="-25dp"
+        android:layout_marginStart="-33dp"
         android:layout_marginTop="-10dp"
         android:max="100"
         android:progress="50"
@@ -159,10 +163,10 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <ProgressBar
         android:id="@+id/hero1Brain"
@@ -177,72 +181,69 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.354" />
 
     <TextView
         android:id="@+id/textOdpornosc1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="4dp"
         android:text="@string/ODPORNOSC"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/hero1Immunity"
+        app:layout_constraintStart_toStartOf="@+id/hero1Immunity"
         app:layout_constraintTop_toBottomOf="@+id/hero1Immunity"
-        app:layout_constraintVertical_bias="0.35" />
-
-    <!--sh2 -->
+        app:layout_constraintVertical_bias="0.696" />
 
     <TextView
         android:id="@+id/textMozg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="12dp"
         android:text="@string/MÓZG"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toEndOf="@+id/textSerce1"
+        app:layout_constraintEnd_toEndOf="@+id/hero1Brain"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/hero1Brain"
         app:layout_constraintTop_toBottomOf="@+id/hero1Brain"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.521" />
 
     <TextView
         android:id="@+id/textSerce1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginTop="4dp"
         android:text="@string/SERCE"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toEndOf="@+id/textOdpornosc1"
+        app:layout_constraintEnd_toEndOf="@+id/hero1Heart"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="@+id/hero1Heart"
         app:layout_constraintTop_toBottomOf="@+id/hero1Heart"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.703" />
 
     <ImageButton
         android:id="@+id/imageView5"
         android:layout_width="121dp"
         android:layout_height="133dp"
+        android:background="@null"
         android:contentDescription="@string/superbohater"
         android:scaleType="centerInside"
-        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
+        app:layout_constraintHorizontal_bias="0.646"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/sh2" />
 
     <ProgressBar
@@ -250,7 +251,7 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="50dp"
         android:layout_height="14dp"
-        android:layout_marginStart="219dp"
+        android:layout_marginStart="222dp"
         android:layout_marginTop="-10dp"
         android:max="100"
         android:progress="50"
@@ -258,10 +259,10 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.354" />
 
     <ProgressBar
         android:id="@+id/hero2Heart"
@@ -276,10 +277,13 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.328" />
+
+    <!--sh3 -->
+
 
     <ProgressBar
         android:id="@+id/hero2Immunity"
@@ -294,10 +298,10 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.354" />
 
     <ProgressBar
         android:id="@+id/hero2Brain"
@@ -312,39 +316,39 @@
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.672"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <TextView
         android:id="@+id/textEnergy2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:text="@string/ENERGIA"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="@+id/hero2Energy"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/hero1Brain"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hero2Energy"
         app:layout_constraintTop_toBottomOf="@+id/hero2Energy"
-        app:layout_constraintVertical_bias="0.636" />
+        app:layout_constraintVertical_bias="0.685" />
 
     <TextView
         android:id="@+id/textImmunity2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="-4dp"
         android:text="@string/ODPORNOSC"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toStartOf="@+id/hero2Heart"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/hero2Energy"
+        app:layout_constraintEnd_toEndOf="@+id/hero2Immunity"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toStartOf="@+id/hero2Immunity"
         app:layout_constraintTop_toBottomOf="@+id/hero2Immunity"
-        app:layout_constraintVertical_bias="0.617" />
+        app:layout_constraintVertical_bias="0.685" />
 
     <TextView
         android:id="@+id/textHeart2"
@@ -355,41 +359,43 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/hero2Heart"
-        app:layout_constraintHorizontal_bias="0.705"
-        app:layout_constraintStart_toEndOf="@+id/hero2Immunity"
+        app:layout_constraintEnd_toStartOf="@+id/hero2Brain"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hero2Heart"
         app:layout_constraintTop_toBottomOf="@+id/hero2Heart"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintVertical_bias="0.696" />
 
     <TextView
         android:id="@+id/textBrain2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="6dp"
         android:text="@string/MÓZG"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/hero2Brain"
+        app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toEndOf="@+id/hero2Heart"
+        app:layout_constraintStart_toStartOf="@+id/hero2Brain"
         app:layout_constraintTop_toTopOf="@+id/hero2Brain"
-        app:layout_constraintVertical_bias="0.723" />
-
-    <!--sh3 -->
-
+        app:layout_constraintVertical_bias="0.787" />
 
     <ImageButton
         android:id="@+id/imageView6"
         android:layout_width="145dp"
         android:layout_height="130dp"
+        android:background="@null"
         android:contentDescription="@string/superbohater"
         android:scaleType="centerInside"
-        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722"
+        app:layout_constraintVertical_bias="0.768"
         app:srcCompat="@drawable/sh3" />
 
     <ProgressBar
@@ -397,7 +403,6 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="50dp"
         android:layout_height="14dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
         android:max="100"
         android:progress="50"
@@ -405,8 +410,8 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintStart_toEndOf="@+id/book_button"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -422,17 +427,17 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.146" />
 
     <ProgressBar
         android:id="@+id/hero3Immunity"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="50dp"
         android:layout_height="14dp"
-        android:layout_marginStart="-6dp"
+        android:layout_marginStart="-4dp"
         android:layout_marginTop="16dp"
         android:max="100"
         android:progress="50"
@@ -440,8 +445,8 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="@+id/textEnergia"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -458,11 +463,12 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!--sh4 -->
     <TextView
         android:id="@+id/textEnergy3"
         android:layout_width="wrap_content"
@@ -471,10 +477,11 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hero3Immunity"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/hero3Energy"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hero3Energy"
         app:layout_constraintTop_toBottomOf="@+id/hero3Energy"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.894" />
 
     <TextView
         android:id="@+id/textImmunity3"
@@ -482,14 +489,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/ODPORNOSC"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hero3Heart"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/hero3Energy"
+        app:layout_constraintEnd_toEndOf="@+id/hero3Immunity"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/hero3Immunity"
         app:layout_constraintTop_toBottomOf="@+id/hero3Immunity"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.785" />
 
     <TextView
         android:id="@+id/textHeart3"
@@ -499,43 +506,42 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hero3Brain"
-        app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintStart_toEndOf="@+id/hero3Immunity"
+        app:layout_constraintEnd_toEndOf="@+id/hero3Heart"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="@+id/hero3Heart"
         app:layout_constraintTop_toBottomOf="@+id/hero3Heart"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/textBrain3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:text="@string/MÓZG"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hero4Energy"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/hero3Heart"
+        app:layout_constraintEnd_toEndOf="@+id/hero3Brain"
+        app:layout_constraintStart_toStartOf="@+id/hero3Brain"
         app:layout_constraintTop_toBottomOf="@+id/hero3Brain"
         app:layout_constraintVertical_bias="0.863" />
 
-    <!--sh4 -->
     <ImageButton
         android:id="@+id/imageView7"
         android:layout_width="127dp"
         android:layout_height="126dp"
         android:layout_marginStart="259dp"
         android:layout_marginEnd="16dp"
-        android:scaleType="centerInside"
         android:background="@null"
         android:contentDescription="@string/superbohater"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.747"
-        app:srcCompat="@drawable/sh4" />
+        app:layout_constraintVertical_bias="0.768"
+        app:srcCompat="@drawable/sh5" />
 
     <ProgressBar
         android:id="@+id/hero4Energy"
@@ -550,10 +556,10 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <ProgressBar
         android:id="@+id/hero4Heart"
@@ -568,7 +574,7 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:layout_constraintVertical_bias="0.406" />
@@ -579,17 +585,17 @@
         android:layout_width="50dp"
         android:layout_height="14dp"
         android:layout_marginStart="264dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="18dp"
         android:max="100"
         android:progress="50"
         android:progressTint="@color/yellow"
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintHorizontal_bias="0.256"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/hero4Brain"
@@ -604,7 +610,7 @@
         android:rotation="270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintHorizontal_bias="0.683"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:layout_constraintVertical_bias="0.406" />
@@ -619,40 +625,42 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/hero4Immunity"
-        app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toEndOf="@+id/textBrain3"
+        app:layout_constraintEnd_toEndOf="@+id/hero4Energy"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/hero4Energy"
         app:layout_constraintTop_toBottomOf="@+id/hero4Energy"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintVertical_bias="0.68" />
 
     <TextView
         android:id="@+id/textImmunity4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:text="@string/ODPORNOSC"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hero4Heart"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintEnd_toEndOf="@+id/hero4Immunity"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="@+id/hero4Immunity"
         app:layout_constraintTop_toBottomOf="@+id/hero4Immunity"
-        app:layout_constraintVertical_bias="0.913" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textHeart4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="-10dp"
         android:layout_marginTop="10dp"
         android:text="@string/SERCE"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/hero4Heart"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="@+id/hero4Heart"
         app:layout_constraintTop_toBottomOf="@+id/hero4Heart"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/textBrain4"
@@ -664,33 +672,35 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toEndOf="@+id/hero4Heart"
         app:layout_constraintTop_toBottomOf="@+id/hero4Brain"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.812" />
 
     <Button
         android:id="@+id/pantry_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="60dp"
         android:layout_marginTop="2dp"
+        android:textSize="12sp"
         android:text="@string/spiżarnia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/book_button"
-        android:layout_width="137dp"
-        android:layout_height="78dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="128dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="11dp"
         android:text="@string/ksiązkaKucharska"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
@@ -699,78 +709,106 @@
         android:id="@+id/message1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="168dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.035" />
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/collectButton1"
+        app:layout_constraintEnd_toEndOf="@+id/collectButton1"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="@+id/collectButton1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/message2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="12dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/collectButton2"
+        app:layout_constraintEnd_toEndOf="@+id/collectButton2"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="@+id/collectButton2"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/message3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/collectButton3"
+        app:layout_constraintEnd_toEndOf="@+id/collectButton3"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="@+id/collectButton3"
+        app:layout_constraintTop_toBottomOf="@+id/textEnergia"
+        app:layout_constraintVertical_bias="0.906" />
 
     <TextView
         android:id="@+id/message4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.27"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/collectButton4"
+        app:layout_constraintEnd_toEndOf="@+id/collectButton4"
+        app:layout_constraintStart_toStartOf="@+id/collectButton4"
+        app:layout_constraintTop_toBottomOf="@+id/textEnergy2"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/collectButton2"
-        android:layout_width="88dp"
+        android:layout_width="98dp"
         android:layout_height="48dp"
         android:layout_marginBottom="54dp"
         android:text="@string/collectButton"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/message2"
-        app:layout_constraintHorizontal_bias="0.315"
-        app:layout_constraintStart_toStartOf="@+id/message2"
-        app:layout_constraintTop_toBottomOf="@+id/message2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/collectButton1"
-        android:layout_width="88dp"
+        android:layout_width="98dp"
         android:layout_height="48dp"
         android:text="@string/collectButton"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/message1"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="@+id/message1"
-        app:layout_constraintTop_toBottomOf="@+id/message1"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.719"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.364" />
+
+    <TextView
+        android:id="@+id/feedbackText"
+        android:layout_width="191dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="4dp"
+        android:text="ss"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/startText"
+        android:shadowColor="@color/light_pink"
+        android:shadowRadius="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:layout_constraintVertical_bias="0.0" />
 
 

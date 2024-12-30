@@ -1,11 +1,11 @@
 package com.example.kuchniasupebohatera;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,14 +23,10 @@ public class MainActivity extends AppCompatActivity{
     List<Superhero> superheroList = new ArrayList<>();
     List<Superhero> positiveSuperheroList;
     List<Ingredient> ingredientsList;
-    List<Ingredient> chosenIngredients;
-
     private Superhero superhero1, superhero2, superhero3, superhero4;
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
     private final int interval = 3000;
     private Random randomH, randomI;
-    private IngredientAdapter adapterList = new IngredientAdapter();
-    private boolean canBeFeed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +39,10 @@ public class MainActivity extends AppCompatActivity{
             return insets;
         });
 
+
         settingMenu();
         settingSuperheros();
-
-        superhero1.setVisibility(true);
-        superhero2.setVisibility(true);
-        superhero3.setVisibility(false);
-        superhero4.setVisibility(false);
+        loadGameState();
 
         //uzyskanie listy skladnikow
         PantryActivity ingredientManager = new PantryActivity();
@@ -57,31 +50,52 @@ public class MainActivity extends AppCompatActivity{
 
         //wyswietlanie wiadomosci i zbieranie produktow
         settingMessage();
-        if(!IngredientAdapter.getIngredients().isEmpty()){
-            feedingHeroes();
-        }
-    }
-    private void feedingHeroes(){
-        for(Superhero hero : superheroList) {
-            ImageButton heroImage = hero.getImage();
-            heroImage.setOnClickListener(v ->{
-                Indicator heroIndicator = hero.getIndicator();
-                chosenIngredients = IngredientAdapter.getIngredients();
+        feedingHero();
+        ifGameEnded();
 
-                for(Ingredient ingredient : chosenIngredients){
-                    heroIndicator.getEnergy().incrementProgressBy(ingredient.getEnergy());
-                    heroIndicator.getImmunity().incrementProgressBy(ingredient.getImmunity());
-                    heroIndicator.getHeart().incrementProgressBy(ingredient.getHeart());
-                    heroIndicator.getBrain().incrementProgressBy(ingredient.getBrain());
-                }
-                IngredientAdapter.getIngredients().clear();
-            });
+        TextView feedbackText = findViewById(R.id.feedbackText);
+
+        if (!IngredientAdapter.getIngredients().isEmpty()) {
+            feedbackText.setText("Nakarm superbohatera, naciskając go");
+        }else{
+            feedbackText.setText("Zbieraj produkty od superbohaterów, z ich podróży!");
+        }
+
+    }
+    private void feedingHero(){
+        if(!IngredientAdapter.getIngredients().isEmpty()){ //jezeli lista z wybranymi skladnikami nie jest pusta
+            for(Superhero hero : superheroList){
+                hero.feedingHero(superheroList);
+            }
         }
     }
 
+    private void ifGameEnded(){
+        int amountOfInvisible = 0;
+
+        for(Superhero hero : superheroList){
+            if(!hero.getVisibility()){
+                amountOfInvisible++;
+            }
+        }
+        if(amountOfInvisible == 4){
+            TextView feedbackText = findViewById(R.id.feedbackText);
+            feedbackText.setText("Próbuj ponownie!");
+
+            for (int i = 0; i < superheroList.size(); i++) {
+                Superhero hero = superheroList.get(i);
+
+                hero.getIndicator().getBrain().setProgress(50);
+                hero.getIndicator().getEnergy().setProgress(50);
+                hero.getIndicator().getHeart().setProgress(50);
+                hero.getIndicator().getImmunity().setProgress(50);
+            }
+            superhero1.setVisibility(true);
+            superhero2.setVisibility(true);
+        }
+    }
     private void settingMessage(){
         Runnable runnable;
-
         runnable = new Runnable(){
 
             @Override
@@ -99,7 +113,7 @@ public class MainActivity extends AppCompatActivity{
                 if(!positiveSuperheroList.isEmpty()){
                     Superhero randomHero = positiveSuperheroList.get(randomH.nextInt(positiveSuperheroList.size())); //losowanie superhero, z tych ktorzy sa widczni
 
-                    if(randomHero.getMessage().isEmpty()){ //jezeli nie jest pusty message to nie mozna nic tam dac
+                    if(randomHero.getMessage().isEmpty() || randomHero.getMessage() == "Ale siła!" || randomHero.getMessage() == "Pora na drzemke" || randomHero.getMessage() == "Chyba zemdleje" || randomHero.getMessage() == "Jak się walczyło?" || randomHero.getMessage() == "Apsik!" ){ //jezeli nie jest pusty message to nie mozna nic tam dac
                         Ingredient randomIngredient = ingredientsList.get(randomI.nextInt(ingredientsList.size())); //losowanie produktu
                         randomHero.setMessage(randomIngredient.getIngredient_name()); //generowanie wiadomosci o zdobytym produkcie
 
@@ -129,10 +143,27 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
+    private void loadGameState() {
+        SharedPreferences sharedPreferences = getSharedPreferences("GameProgress", MODE_PRIVATE);
+
+        for (int i = 0; i < superheroList.size(); i++) {
+            Superhero hero = superheroList.get(i);
+
+            // Wczytaj wartości ProgressBar
+            hero.getIndicator().getBrain().setProgress(sharedPreferences.getInt("hero_" + i + "_brainProgress", 50));
+            hero.getIndicator().getEnergy().setProgress(sharedPreferences.getInt("hero_" + i + "_energyProgress", 50));
+            hero.getIndicator().getHeart().setProgress(sharedPreferences.getInt("hero_" + i + "_heartProgress", 50));
+            hero.getIndicator().getImmunity().setProgress(sharedPreferences.getInt("hero_" + i + "_immunityProgress", 50));
+
+            // Wczytaj widoczność
+            boolean isVisible = sharedPreferences.getBoolean("hero_" + i + "_visible", true);
+            hero.setVisibility(isVisible);
+        }
+    }
+
     private void settingSuperheros(){
         TextView message1, message2, message3, message4;
         Button collectButton1, collectButton2, collectButton3, collectButton4;
-
 
         ImageButton superhero1Image = findViewById(R.id.imageView4);
         ProgressBar superhero1Energy = findViewById(R.id.hero1Energy);
@@ -185,15 +216,21 @@ public class MainActivity extends AppCompatActivity{
         collectButton4 = findViewById(R.id.collectButton4);
 
 
-        superhero1 = new Superhero( superhero1Image, message1, collectButton1, new Indicator(superhero1Energy, energyText1, superhero1Heart, heartText1,superhero1Immunity,immunityText1, superhero1Brain, brainText1));
-        superhero2 = new Superhero( superhero2Image, message2, collectButton2, new Indicator(superhero2Energy, energyText2, superhero2Heart, heartText2,superhero2Immunity,immunityText2, superhero2Brain, brainText2));
-        superhero3 = new Superhero( superhero3Image, message3, collectButton3, new Indicator(superhero3Energy, energyText3, superhero3Heart, heartText3,superhero3Immunity,immunityText3, superhero3Brain, brainText3));
-        superhero4 = new Superhero( superhero4Image, message4, collectButton4, new Indicator(superhero4Energy, energyText4, superhero4Heart, heartText4,superhero4Immunity,immunityText4, superhero4Brain, brainText4));
+        superhero1 = new Superhero( MainActivity.this, superhero1Image, message1, collectButton1, new Indicator(superhero1Energy, energyText1, superhero1Heart, heartText1,superhero1Immunity,immunityText1, superhero1Brain, brainText1));
+        superhero2 = new Superhero(MainActivity.this, superhero2Image, message2, collectButton2, new Indicator(superhero2Energy, energyText2, superhero2Heart, heartText2,superhero2Immunity,immunityText2, superhero2Brain, brainText2));
+        superhero3 = new Superhero(MainActivity.this, superhero3Image, message3, collectButton3, new Indicator(superhero3Energy, energyText3, superhero3Heart, heartText3,superhero3Immunity,immunityText3, superhero3Brain, brainText3));
+        superhero4 = new Superhero(MainActivity.this, superhero4Image, message4, collectButton4, new Indicator(superhero4Energy, energyText4, superhero4Heart, heartText4,superhero4Immunity,immunityText4, superhero4Brain, brainText4));
 
         superheroList.add(superhero1);
         superheroList.add(superhero2);
         superheroList.add(superhero3);
         superheroList.add(superhero4);
+
+        superhero1.setVisibility(true);
+        superhero2.setVisibility(true);
+        superhero3.setVisibility(false);
+        superhero4.setVisibility(false);
+
     }
 
 }

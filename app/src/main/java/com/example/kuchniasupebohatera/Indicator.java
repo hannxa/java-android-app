@@ -1,12 +1,19 @@
 package com.example.kuchniasupebohatera;
 
+import static android.content.Context.MODE_PRIVATE;
+
+
+import android.content.SharedPreferences;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.List;
 
 
 public class Indicator {
     private ProgressBar energyBar, heartBar, immunityBar, brainBar;
     private TextView energyText, heartText, immunityText, brainText;
+
 
     public Indicator(ProgressBar energy_value, TextView energy_text, ProgressBar heart_value,TextView
             heart_text, ProgressBar immunity_value, TextView immunity_text,ProgressBar brain_value, TextView brain_text){
@@ -29,6 +36,17 @@ public class Indicator {
         heartText.setVisibility(visibility);
         immunityText.setVisibility(visibility);
         brainText.setVisibility(visibility);
+    }
+
+    public void changingIndicators(){
+        List<Ingredient> chosenIngredients = IngredientAdapter.getIngredients();
+
+        for(Ingredient ingredient : chosenIngredients){
+            energyBar.incrementProgressBy(ingredient.getEnergy());
+            immunityBar.incrementProgressBy(ingredient.getImmunity());
+            heartBar.incrementProgressBy(ingredient.getHeart());
+            brainBar.incrementProgressBy(ingredient.getBrain());
+        }
     }
 
     public ProgressBar getEnergy() {
