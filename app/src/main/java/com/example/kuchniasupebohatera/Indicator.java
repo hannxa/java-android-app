@@ -48,6 +48,12 @@ public class Indicator {
             brainBar.incrementProgressBy(ingredient.getBrain());
         }
     }
+    public void decreasingIndicators(){
+        energyBar.incrementProgressBy(-5);
+        immunityBar.incrementProgressBy(-5);
+        heartBar.incrementProgressBy(-5);
+        brainBar.incrementProgressBy(-5);
+    }
 
     public ProgressBar getEnergy() {
         return energyBar;

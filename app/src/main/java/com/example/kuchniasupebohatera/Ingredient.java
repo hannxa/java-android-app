@@ -1,4 +1,7 @@
 package com.example.kuchniasupebohatera;
+
+import java.util.Objects;
+
 public class Ingredient {
     private String ingredient_name;
     private int energyValue;
@@ -40,5 +43,22 @@ public class Ingredient {
     }
     public void setCanButtonBeClicked(boolean buttonClicked){
         canButtonBeClicked = buttonClicked;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return Objects.equals(ingredient_name, that.ingredient_name); // Porównanie na podstawie nazwy
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ingredient_name); // Generowanie hashCode na podstawie nazwy
+    }
+
+    @Override
+    public String toString() {
+        return ingredient_name; // Dla czytelnych logów
     }
 }

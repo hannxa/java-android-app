@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -16,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity{
     List<Ingredient> ingredientsList;
     private Superhero superhero1, superhero2, superhero3, superhero4;
     private final Handler handler = new Handler();
-    private final int interval = 3000;
+    private final int interval = 3500;
     private Random randomH, randomI;
 
     @Override
@@ -49,23 +51,54 @@ public class MainActivity extends AppCompatActivity{
         ingredientsList = ingredientManager.getIngredientsList();
 
         //wyswietlanie wiadomosci i zbieranie produktow
-        settingMessage();
+        randomizer();
         feedingHero();
         ifGameEnded();
 
+    }
+    private void settingMessage(){
         TextView feedbackText = findViewById(R.id.feedbackText);
 
         if (!IngredientAdapter.getIngredients().isEmpty()) {
-            feedbackText.setText("Nakarm superbohatera, naciskając go");
-        }else{
-            feedbackText.setText("Zbieraj produkty od superbohaterów, z ich podróży!");
-        }
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    feedbackText.setText("Nakarm superbohatera, naciskając go");
+                }
+            });
+        } else {
+            for(String recipe : RecipeBookActivity.recipes.keySet()){
+                if (!feedbackText.getText().toString().equals("Gratulacje! Udało Ci się stworzyć" + recipe)) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            feedbackText.setText("Zbieraj produkty od superbohaterów, z ich podróży!");
+                        }
+                    });
+                }
+            }
 
+        }
     }
     private void feedingHero(){
+        TextView feedbackText = findViewById(R.id.feedbackText);
+        RecipeBookActivity.addingRecipes();
+        settingMessage();
+
+
         if(!IngredientAdapter.getIngredients().isEmpty()){ //jezeli lista z wybranymi skladnikami nie jest pusta
+
             for(Superhero hero : superheroList){
                 hero.feedingHero(superheroList);
+            }
+
+            for(String recipe : RecipeBookActivity.recipes.keySet()){
+                List<Ingredient> recipeIngredients = RecipeBookActivity.recipes.get(recipe);
+
+                if(new HashSet<>(IngredientAdapter.chosenIngredients).equals(new HashSet<>(recipeIngredients))){
+                    feedbackText.setText("Gratulacje! Udało Ci się stworzyć" + recipe);
+                    break;
+                }
             }
         }
     }
@@ -85,16 +118,16 @@ public class MainActivity extends AppCompatActivity{
             for (int i = 0; i < superheroList.size(); i++) {
                 Superhero hero = superheroList.get(i);
 
-                hero.getIndicator().getBrain().setProgress(50);
-                hero.getIndicator().getEnergy().setProgress(50);
-                hero.getIndicator().getHeart().setProgress(50);
-                hero.getIndicator().getImmunity().setProgress(50);
+                hero.getIndicator().getBrain().setProgress(70);
+                hero.getIndicator().getEnergy().setProgress(70);
+                hero.getIndicator().getHeart().setProgress(70);
+                hero.getIndicator().getImmunity().setProgress(70);
             }
             superhero1.setVisibility(true);
             superhero2.setVisibility(true);
         }
     }
-    private void settingMessage(){
+    private void randomizer(){
         Runnable runnable;
         runnable = new Runnable(){
 
@@ -116,6 +149,10 @@ public class MainActivity extends AppCompatActivity{
                     if(randomHero.getMessage().isEmpty() || randomHero.getMessage() == "Ale siła!" || randomHero.getMessage() == "Pora na drzemke" || randomHero.getMessage() == "Chyba zemdleje" || randomHero.getMessage() == "Jak się walczyło?" || randomHero.getMessage() == "Apsik!" ){ //jezeli nie jest pusty message to nie mozna nic tam dac
                         Ingredient randomIngredient = ingredientsList.get(randomI.nextInt(ingredientsList.size())); //losowanie produktu
                         randomHero.setMessage(randomIngredient.getIngredient_name()); //generowanie wiadomosci o zdobytym produkcie
+
+                        randomHero.getIndicator().decreasingIndicators(); // zawsze sie zmniejszaja wszystkie wskazniki jak wroci z wiadomoscia
+                        randomHero.checkingIfToDelete(); //usuwamy jak sie zmniejsza za bardzo
+                        randomHero.savingChanges(superheroList); //zapisujemy zmiany
 
                         randomHero.getCollectButton().setOnClickListener(v -> {
                             randomHero.setMessage(""); //jak sie zbierze to usuwa sie wiadomosc

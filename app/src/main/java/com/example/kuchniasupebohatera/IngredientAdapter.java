@@ -15,7 +15,13 @@ import java.util.List;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder> {
     private List<Ingredient> ingredients;
-    private static List<Ingredient> chosenIngredients = new ArrayList<>();
+    public static List<Ingredient> chosenIngredients = new ArrayList<>();
+    public static void adding(){
+        chosenIngredients.add(PantryActivity.ingredientsList.get(0));
+        chosenIngredients.add(PantryActivity.ingredientsList.get(1));
+        chosenIngredients.add(PantryActivity.ingredientsList.get(17));
+        chosenIngredients.add(PantryActivity.ingredientsList.get(18));
+    }
 
     private boolean canReverse = false;
     public IngredientAdapter(List<Ingredient> ingredients) {

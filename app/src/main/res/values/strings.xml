@@ -61,5 +61,6 @@
     <string name="ingredient_instant_soup">zupka błyskawiczna</string>
     <string name="ingredient_donut">pączek</string>
 
+    <string name="choseIngredients">wybierz produkty którymi później nakarmisz superbohaterów</string>
 
 </resources>
