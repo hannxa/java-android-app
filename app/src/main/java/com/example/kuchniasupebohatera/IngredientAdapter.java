@@ -27,9 +27,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
     public IngredientAdapter(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
-    public IngredientAdapter(){
 
-    }
 
     // ViewHolder dla RecyclerView
     public static class IngredientViewHolder extends RecyclerView.ViewHolder {

@@ -96,7 +96,10 @@ public class MainActivity extends AppCompatActivity{
                 List<Ingredient> recipeIngredients = RecipeBookActivity.recipes.get(recipe);
 
                 if(new HashSet<>(IngredientAdapter.chosenIngredients).equals(new HashSet<>(recipeIngredients))){
-                    feedbackText.setText("Gratulacje! Udało Ci się stworzyć" + recipe);
+                    feedbackText.setText("Gratulacje! Udało Ci się stworzyć " + recipe);
+                    for(Superhero hero : superheroList){
+                        hero.feedingHero(superheroList); // jezeli zrobi się danie z listy to dwukrotnie wzrastaja wskazniki
+                    }
                     break;
                 }
             }
