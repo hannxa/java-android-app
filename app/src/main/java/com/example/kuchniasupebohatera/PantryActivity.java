@@ -14,11 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity representing the pantry screen where ingredients can be viewed and managed.
+ */
 public class PantryActivity extends AppCompatActivity {
+    private IngredientAdapter adapter;
+    public static List<Ingredient> ingredientsList = new ArrayList<>();
 
-private IngredientAdapter adapter;
-public static List<Ingredient> ingredientsList = new ArrayList<>();
-
+    /**
+     * Called when the activity is starting. Sets up the user interface and initializes the ingredient list.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down,
+     *                           this contains the most recent data supplied. Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,34 +38,50 @@ public static List<Ingredient> ingredientsList = new ArrayList<>();
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        settingMenu();
-        // Znajdź RecyclerView w widoku
+        settingMenu(); //Initialize the menu, setting up navigation buttons
+        // Find recycler view for one ingredient
         RecyclerView recyclerView = findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new IngredientAdapter(ingredientsList);
-        recyclerView.setAdapter(adapter);
+        adapter = new IngredientAdapter(ingredientsList); // Create an adapter for displaying the list of ingredients
+        recyclerView.setAdapter(adapter); // Attach the adapter to the RecyclerView
     }
+
+    /**
+     * Retrieves the list of ingredients. If the list is empty, initializes it with default values.
+     *
+     * @return A list of {@link Ingredient} objects representing the pantry items.
+     */
     public List<Ingredient> getIngredientsList(){
         if(ingredientsList.isEmpty()){
             initializeIngredients();
         }
         return ingredientsList;
     }
+
+    /**
+     * Sets up the navigation menu with buttons for accessing other screens.
+     */
     private void settingMenu(){
         ImageButton bookButton = findViewById(R.id.book_button);
         ImageButton homeButton = findViewById(R.id.home_button);
 
+        // Set up navigation to the RecipeBookActivity
         bookButton.setOnClickListener(v -> {
             Intent goBook = new Intent(PantryActivity.this, RecipeBookActivity.class);
             startActivity(goBook);
         });
+
+        // Set up navigation to the MainActivity
         homeButton.setOnClickListener(v -> {
             Intent goHome = new Intent(PantryActivity.this, MainActivity.class);
             startActivity(goHome);
         });
     }
 
+    /**
+     * Initializes the ingredient list with predefined ingredients and their properties.
+     */
     private void initializeIngredients(){
         ingredientsList.add(new Ingredient("banan", 3, 9, 8, 3,0, R.drawable.banan));
         ingredientsList.add(new Ingredient("szpinak", 8, 4, 9, 5,0,R.drawable.szpinak));
