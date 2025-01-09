@@ -5,13 +5,13 @@ plugins {
 
 android {
     namespace = "com.example.kuchniasupebohatera"
-    compileSdk = 34
+    compileSdk = 35
 
 
     defaultConfig {
         applicationId = "com.example.kuchniasupebohatera"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -38,17 +38,12 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.filament.android)
-    implementation(fileTree(mapOf(
-        "dir" to "C:\\Users\\akabe\\AppData\\Local\\Android\\Sdk\\platforms\\android-34",
-        "include" to listOf("*.aar", "*.jar"),
-    )))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
