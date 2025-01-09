@@ -1,17 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
-    //alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
     namespace = "com.example.kuchniasupebohatera"
-    compileSdk = 35
+    compileSdk = 34
 
 
     defaultConfig {
         applicationId = "com.example.kuchniasupebohatera"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -45,6 +45,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.filament.android)
+    implementation(fileTree(mapOf(
+        "dir" to "C:\\Users\\akabe\\AppData\\Local\\Android\\Sdk\\platforms\\android-34",
+        "include" to listOf("*.aar", "*.jar"),
+    )))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
