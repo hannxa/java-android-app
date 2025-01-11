@@ -87,7 +87,6 @@ public class RecipeBookActivity extends AppCompatActivity {
         ingredientsSalad.add(pantryIngredient.get(12));
         ingredientsSalad.add(pantryIngredient.get(13));
         ingredientsSalad.add(pantryIngredient.get(6));
-        ingredientsSalad.add(pantryIngredient.get(1));
 
         //ingredients for "owsianka"
         ingredientsOatMeal.add(pantryIngredient.get(3));
@@ -109,7 +108,7 @@ public class RecipeBookActivity extends AppCompatActivity {
         ingredientsSmoothie.add(pantryIngredient.get(18));
 
         // Map recipes to their ingredient lists
-        recipes.put("koktjl mocy", ingredientsCocktail);
+        recipes.put("koktajl mocy", ingredientsCocktail);
         recipes.put("sałatke z awokado i pomidorem", ingredientsSalad);
         recipes.put("owsianke z jagodami i orzechami", ingredientsOatMeal);
         recipes.put("złote mleko z kurkumą", ingredientsMilk);

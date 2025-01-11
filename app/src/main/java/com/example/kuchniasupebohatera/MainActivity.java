@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity{
                         @Override
                         public void run() {
                             // Prompt the user to collect ingredients
-                            feedbackText.setText("Zbieraj produkty od superbohaterów, z ich podróży!");
+                            feedbackText.setText("Zbieraj produkty od superbohaterów z ich podróży!");
                         }
                     });
                 }
